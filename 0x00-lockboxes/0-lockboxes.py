@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" method lockboxes """
 
 
 def canUnlockAll(boxes):
@@ -6,6 +7,10 @@ def canUnlockAll(boxes):
 
     if not boxes or len(boxes) is 0:
         return False
+    
+    if len(boxes) == 1:
+        if type(boxes[0]) != list:
+            return False
 
     MyKey = [0]
 
