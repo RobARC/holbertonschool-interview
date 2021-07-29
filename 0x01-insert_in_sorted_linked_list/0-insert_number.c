@@ -4,35 +4,29 @@
 #include "lists.h"
 
 /**
- * insert_node, function that insert a new node in number position .
- * @head pointer to the structure listin_t
- * @number:data of node
- * Return: node
- */
+* insert_node - function that insert a new node in number position .
+* @head: pointer to the structure listin_t
+* @number:data of node
+* Return: newnode or NULL
+*/
 
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *newnode, *aux;
 	int i, count = 0;
-	newnode = *head;
+	listint_t *newnode, *aux;
 
+	newnode = *head;
 	if (newnode == NULL)
 		return (NULL);
-
 	newnode = malloc(sizeof(struct listint_s)); /*creating newnode*/
-		
 	if (newnode == NULL)
 	{
 		free_listint(newnode);
 		return (NULL);
 	}
-
-	/*asigned data to newnode*/
 	newnode->n = number;
 	newnode->next = NULL;
-
 	aux = *head;
-
 	/*crating a counter to know how much nodes are*/
 	while (aux != NULL)
 	{
@@ -52,8 +46,8 @@ listint_t *insert_node(listint_t **head, int number)
 			{
 				newnode->next = aux->next;
 				aux->next = newnode;
-				return(newnode);
-			}	
+				return (newnode);
+			}
 		}
 	}
 	return (NULL);
