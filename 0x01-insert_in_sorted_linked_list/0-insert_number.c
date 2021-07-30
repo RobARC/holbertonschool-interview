@@ -15,7 +15,7 @@ listint_t *insert_node(listint_t **head, int number)
 	
 	listint_t *newnode = NULL, *aux = NULL;
 
-	if (head == NULL)
+	if (*head == NULL)
 		return (NULL);
 	newnode = malloc(sizeof(struct listint_s)); /*creating newnode*/
 	if (newnode == NULL)
