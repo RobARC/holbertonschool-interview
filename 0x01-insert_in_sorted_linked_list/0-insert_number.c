@@ -4,18 +4,17 @@
 #include "lists.h"
 
 /**
-* insert_node - function that insert a new node in number position .
-* @head: pointer to the structure listin_t
-* @number:data of node
-* Return: newnode or NULL
-*/
+ * insert_node - function that insert a new node in number position .
+ * @head: pointer to the structure listin_t
+ * @number:data of node
+ * Return: node
+ */
 
 listint_t *insert_node(listint_t **head, int number)
 {
-	
 	listint_t *newnode = NULL, *aux = NULL;
 
-	if (*head == NULL)
+	if (head == NULL)
 		return (NULL);
 
 	newnode = malloc(sizeof(struct listint_s)); /*creating newnode*/
@@ -24,28 +23,31 @@ listint_t *insert_node(listint_t **head, int number)
 		free_listint(newnode);
 		return (NULL);
 	}
+
+	/*asigned data to newnode*/
 	newnode->n = number;
 	newnode->next = NULL;
 	aux = *head;
-	
-		if (aux->next == NULL)
+
+	if (aux->next == NULL)
+	{
+		newnode->next = aux->next;
+		*head = newnode;
+		return (newnode);
+	}
+	else
+	{
+		while (aux != NULL)
 		{
-			*head = newnode;
-			return (newnode);
-		}
-		else
-		{
-			while (aux != NULL)
-			{
-				if (newnode->n >= aux->n && aux->next != NULL)
+			if (newnode->n >= aux->n && newnode->n >= aux->next->n)
 				aux = aux->next;
-				else
-				{
-					newnode->next = aux->next;
-					aux->next = newnode;
-					return (newnode);
-				}
+			else
+			{
+				newnode->next = aux->next;
+				aux->next = newnode;
+				return (newnode);
 			}
-			return (NULL);
 		}
+		return (NULL);
+	}
 }
