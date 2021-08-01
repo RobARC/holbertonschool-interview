@@ -23,31 +23,31 @@ listint_t *insert_node(listint_t **head, int number)
 		free_listint(newnode);
 		return (NULL);
 	}
-
-	/*asigned data to newnode*/
 	newnode->n = number;
 	newnode->next = NULL;
 	aux = *head;
 
-	if (aux->next == NULL)
+	if (newnode->n <= aux->n)
 	{
-		newnode->next = aux->next;
+		newnode->next = aux;
 		*head = newnode;
 		return (newnode);
 	}
-	else
+
+	while (aux->next != NULL)
 	{
-		while (aux != NULL)
+		if (newnode->n <= aux->next->n)
 		{
-			if (newnode->n >= aux->n && newnode->n >= aux->next->n)
-				aux = aux->next;
-			else
-			{
-				newnode->next = aux->next;
-				aux->next = newnode;
-				return (newnode);
-			}
+			newnode->next = aux->next;
+			aux->next = newnode;
+			return (newnode);
 		}
-		return (NULL);
+		else
+		{
+			aux = aux->next;
+		}
 	}
+	newnode->next = aux->next;
+	aux->next = newnode;
+	return (newnode);
 }
