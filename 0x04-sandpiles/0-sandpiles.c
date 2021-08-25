@@ -24,7 +24,7 @@ static void print_grid(int grid[3][3])
 
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
-  int i, j, grid3[3][3];
+  int i = 0, j = 0;
   
   printf("=\n");
   
@@ -32,31 +32,31 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
     {
       for (j = 0; j < 3; j++)
       {
-        grid3[i][j] = grid1[i][j] + grid2[i][j];
+        grid1[i][j] += grid2[i][j];
       }
     }
-    print_grid(grid3);
+    print_grid(grid1);
     
-    while (stable(grid3) != 0)
+    while (stable(grid1) != 0)
     {
       printf("=\n");
-      tupple(grid3, grid2);
+      tupple(grid1, grid2);
       
     }
 }
 
-void tupple(int sandpiles[3][3], int grid2[3][3])
+void tupple(int grid1[3][3], int grid2[3][3])
 {
-  int i, j, size = 3;
+  int i = 0, j = 0, num = 0, size = 3;
     
   for (i = 0; i < size; i++)
   {
         for (j = 0; j < size; j++)
         {
-          int num = sandpiles[i][j];
+          num = grid1[i][j];
           if (num < 4)
             {
-                grid2[i][j] = sandpiles[i][j];
+                grid2[i][j] = grid1[i][j];
             }
         }
   }
@@ -64,24 +64,24 @@ void tupple(int sandpiles[3][3], int grid2[3][3])
   {
         for (j = 0; j < size; j++)
         {
-          int num = sandpiles[i][j];
+          num = grid1[i][j];
           if (num >= 4)
             {
-                sandpiles[i][j] = sandpiles[i][j] -4;
+                grid1[i][j] = grid1[i][j] -4;
                 if (j < 2)
-                    sandpiles[i][j + 1]++;
+                    grid1[i][j + 1]++;
                 if (i < 2)
-                  sandpiles[i + 1][j]++;
+                  grid1[i + 1][j]++;
                 if (j > 0)
-                  sandpiles[i][j - 1]++;
+                  grid1[i][j - 1]++;
                 if (i > 0)
-                  sandpiles[i - 1][j]++;
+                  grid1[i - 1][j]++;
              
             }
         }
   }
   
-  print_grid(sandpiles);
+  print_grid(grid1);
 }
 
 /**
