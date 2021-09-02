@@ -3,6 +3,10 @@
 Write a script that reads stdin line by line and computes metrics
 """
 
+import sys
+from collections import OrderedDict
+from datetime import datetime
+
 
 def print_log_paser(total_size, code_counter):
     print("File size: {}".format(total_size))
@@ -11,11 +15,7 @@ def print_log_paser(total_size, code_counter):
             print("{}: {:d}".format(code, code_counter[code]))
 
 
-if __name__ == '__main__':
-    import sys
-    from collections import OrderedDict
-    from datetime import datetime
-
+def log_parser():
     """
         Reads stdin line by line and computes metrics
         Input format: <IP Address> - [<date>] "GET /projects/260 HTTP/1.1"
@@ -63,7 +63,7 @@ if __name__ == '__main__':
             if d[1].isdecimal():
                 total_size += int(d[1])
 
-            if line_counter == 10:
+            if line_counter >= 10:
                 print_log_paser(total_size, code_counter)
                 line_counter = 0
 
@@ -72,3 +72,6 @@ if __name__ == '__main__':
     except (KeyboardInterrupt):
             print_log_paser(total_size, code_counter)
             raise
+
+if __name__ == '__main__':
+    log_parser()
