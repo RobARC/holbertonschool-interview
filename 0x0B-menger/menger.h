@@ -9,3 +9,4 @@ void menger(int level);
 int put_space(size_t row, size_t col);
 
 #endif /* MENGER_H */
+
