@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """ The N queens puzzle is the challenge of placing N
-     non-attacking queens on an N×N chessboard. 
+     non-attacking queens on an N×N chessboard.
      Write a program that solves the N queens problem."""
 
 import sys
@@ -21,6 +21,7 @@ k = 1
 
 
 def print_sol(board):
+    """ Method Print"""
     global k
     k = k + 1
     S = []
@@ -32,6 +33,7 @@ def print_sol(board):
 
 
 def isSafe(board, row, col):
+    """ Method IsSafe """
     for i in range(col):
         if (board[row][i]):
             return False
@@ -53,6 +55,7 @@ def isSafe(board, row, col):
 
 
 def solving(board, col):
+    """ Method Solving """
     if (col == N):
         print_sol(board)
         return True
@@ -66,6 +69,7 @@ def solving(board, col):
 
 
 def solve():
+    """ Method Solve"""
     board = [[0 for j in range(N)]for i in range(N)]
     if (solving(board, 0) is False):
         print("Solution does not exist")
