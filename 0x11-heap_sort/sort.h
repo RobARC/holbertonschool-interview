@@ -1,15 +1,22 @@
 #ifndef _HEAP_SORT_H_
-#define _HEEP_SORT_H_
+#define _HEAP_SORT_H_
 
 #include <stdio.h>
 #include <stdlib.h>
 
-/** Struct for elements of the current heap */
+/**
+ * struct MaxHeap - struct array
+ * @size: array size
+ * @array: array data
+ *
+ * Description: structure MaxHeap
+ * for Heap sort algorhimt
+ */
 
 struct MaxHeap
 {
-    int size;
-    int *array;
+	int size;
+	int *array;
 };
 
 void print_array(const int *array, size_t size);
