@@ -1,17 +1,16 @@
 #include "search_algos.h"
 
 /**
- * advance_binary - binary search
+ * advanced_binary - binary search
  * @array: is a pointer to the first element of the array to search in
  * @size: is the number of elements in array
  * @value: the value to search for
  * Return: index or -1
  */
 
-int advanced_binary(int *array, size_t size, int value){
-
-    size_t i, mid, idx = 0;
-	int aux;
+int advanced_binary(int *array, size_t size, int value)
+{   size_t i, mid, idx = 0;
+int aux;
 
 	if (array == NULL)
 		return (-1);
