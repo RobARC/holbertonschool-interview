@@ -38,8 +38,8 @@ void merger(int *array, int *my_array, int left, int med, int right)
 	for (i = left, k = 0; i < right; i++)
 		array[i] = my_array[k++];
 
-		printf("[Done]: ");
-		print_array(array + left, right - left);
+	printf("[Done]: ");
+	print_array(array + left, right - left);
 }
 
 /**
