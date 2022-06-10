@@ -14,7 +14,7 @@ void merger(int *array, int *my_array, int left, int med, int right)
 {
 	int i, j, k;
 
-	printf("Mergin...\n");
+	printf("Merging...\n");
 	printf("[left]: ");
 	print_array(array + left, med - left);
 	printf("[right]: ");
@@ -76,7 +76,6 @@ void merge_sort(int *array, size_t size)
 
 	if (size <= 1)
 	{
-		printf("Array is ordered");
 		return;
 	}
 	else
