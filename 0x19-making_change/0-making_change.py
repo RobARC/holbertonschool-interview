@@ -16,17 +16,13 @@ def makeChange(coins, total):
 
     memo = {0: 0}
 
-    for i in range(1, total + 1):
-        memo[i] = placeholder
-
-        for coin in coins:
-            current = i - coin
-            if current < 0:
-                continue
-
-            memo[i] = min(memo[current] + 1, memo[i])
-
-    if memo[total] == total + 1:
+    fchange = 0
+    coins.sort(reverse=True)
+    for coin in coins:
+        temp_change = int(total / coin)
+        total -= (temp_change * coin)
+        change += temp_change
+        if total == 0:
+            return change
+    if total != 0:
         return -1
-
-    return memo[total]
