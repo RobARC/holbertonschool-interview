@@ -10,13 +10,9 @@ def makeChange(coins, total):
     number of coins needed to meet a given amount total.
     Return: fewest number of coins needed to meet total """
     if total <= 0:
-        return 0
+        return
 
-    placeholder = total + 1
-
-    memo = {0: 0}
-
-    fchange = 0
+    change = 0
     coins.sort(reverse=True)
     for coin in coins:
         temp_change = int(total / coin)
