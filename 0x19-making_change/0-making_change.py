@@ -1,9 +1,14 @@
 #!/usr/bin/python3
-""" METHOD MAKE CHANGE """
+""" Task: Change comes from within
+Given a pile of coins of different values,
+determine the fewest number of coins needed to
+meet a given amount total """
 
 
 def makeChange(coins, total):
-    """Making change method"""
+    """ Given a pile of coins of different values, determine the fewest
+    number of coins needed to meet a given amount total.
+    Return: fewest number of coins needed to meet total """
     if total <= 0:
         return 0
 
