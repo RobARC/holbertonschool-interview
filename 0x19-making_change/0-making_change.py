@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+""" METHOD MAKE CHANGE """
+
 
 def makeChange(coins, total):
     """Making change method"""
@@ -23,4 +25,3 @@ def makeChange(coins, total):
         return -1
 
     return memo[total]
-
