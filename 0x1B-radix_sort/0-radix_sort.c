@@ -23,6 +23,7 @@ void csort2(int *array, int **buff, int size, int lsd)
 			if (j > 0)
 				num = num / 10;
 		num = num % 10;
+		buff[num][carr[num]] = array[i];
 		carr[num] += 1;
 	}
 
@@ -71,7 +72,7 @@ void csort(int *array, int size, int lsd)
 
 	for (i = 0; i < csize; i++)
 		if (carr[i] != 0)
-		buff[i] = malloc(sizeof(int) * carr[i]);
+			buff[i] = malloc(sizeof(int) * carr[i]);
 
 	csort2(array, buff, size, lsd);
 
