@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Program that performs prime game"""
 
 
